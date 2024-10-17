@@ -249,3 +249,25 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+//our code
+
+//clipboard copy
+const phoneNumber = document.getElementsByClassName("phoneNumber")[0]
+const email = document.getElementsByClassName("emailDiv")[0]
+
+phoneNumber.addEventListener("click", (e) => {
+  const message = phoneNumber.getElementsByTagName('p')[1]
+  message.classList.replace('d-none','d-inline')
+  navigator.clipboard.writeText(phoneNumber.getElementsByTagName("p")[0].innerHTML)
+  setTimeout(() => {
+    message.classList.replace('d-inline','d-none')
+  }, 1000
+  )
+
+})
+
+email.addEventListener("click", () => {
+  const value = email.getElementsByTagName("p")[0].innerHTML
+  navigator.clipboard.writeText(value)
+})
